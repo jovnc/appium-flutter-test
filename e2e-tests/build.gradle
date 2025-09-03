@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    // JUnit 5
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Appium Java Client
+    testImplementation 'io.appium:java-client:9.3.0'
+
+    // Flutter Finder for Java
+    testImplementation 'io.github.ashwithpoojary98:appium_flutterfinder_java:1.0.5'
+
+    // Selenium
+    testImplementation 'org.seleniumhq.selenium:selenium-support:4.15.0'
+}
+
+test {
+    useJUnitPlatform()
+}
