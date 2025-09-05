@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 group = 'org.example'
@@ -17,16 +18,27 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+    // Slf4j
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'org.slf4j:slf4j-simple:2.0.13'
+    
+    // Lombok
+    implementation 'org.projectlombok:lombok:1.18.38'
+    annotationProcessor 'org.projectlombok:lombok:1.18.38'
+    testImplementation 'org.projectlombok:lombok:1.18.38'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
+
     // Appium Java Client
     testImplementation 'io.appium:java-client:9.3.0'
 
-    // Flutter Finder for Java
-    testImplementation 'io.github.ashwithpoojary98:appium_flutterfinder_java:1.0.5'
-
     // Selenium
     testImplementation 'org.seleniumhq.selenium:selenium-support:4.15.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 test {
     useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
 }
